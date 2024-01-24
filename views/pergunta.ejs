@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pergunta</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/img/icon_logo.ico" type="image/x-icon">
+</head>
+<script src="/js/bootstrap.bundle.js"></script>
+<body>
+    <nav class="navbar navbar-light bg-primary">
+        <a class="navbar-brand" href="/">
+            <img src="/img/logo.png" class="w-50">
+        </a>
+    </nav>
+    <div class="container p-0">
+        <div class="card" id="formulario-pergunta">
+            <div class="card-header">
+                <h3 class="text-uppercase">pergunta</h3>
+            </div>
+            <div class="card-body">
+                <form method="get" action="/">
+                    <label>Título</label>
+                        <input type="text" placeholder="Título" class="form-control" name="titulo" readonly value='<%= tit %>'>
+                        <br>
+                        <label>Descrição</label>
+                        <textarea placeholder="Descreva sua pergunta aqui" class="form-control" name="descricao" readonly><%= desc %></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Voltar</button>
+                </form>
+            </div>
+        </div>
+        <form action="/responder/<%= id %>" method="post" class="my-4">
+        <div class="card rounded-1">
+            <div class="card-body bg-dark text-bg-danger">
+                <div class="form-floating ">
+                    <h5 class="card-title text-center">Escrever suas ideia com clareza, pode ajudar melhor as pessoas</h5>
+                    <textarea name="answer" id="resposta" class="form-control p-2 my-3" placeholder="Responder a perguntar" style="height: 200px; width: 100%"></textarea>
+                    <button type="submit" class="btn btn-success float-end me-5 w-25 fs-5" id="sendAnswer">Enviar</button>
+                </div>
+            </div>
+        </div>
+        </form>
+        <% if(resposta.length > 0){ %>
+            <% resposta.forEach(function (resposta){ %>
+            <div class="card my-3">
+                <div class="card-body">
+                    <h4 class="card-text fs-3"><%= resposta.corpo %></h4>
+                </div>
+                <div class="card-footer bg-secondary text-light text-end">
+                    <%= resposta.createdAt.toISOString().substring(0,10) %>
+                </div>
+            </div>
+            <% }) %>
+        <% } %>
+
+    </div>
+    
+</body>
+</html>

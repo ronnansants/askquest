@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guia perguntas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" href="img/icon_logo.ico" type="image/x-icon">
+</head>
+<script src="js/bootstrap.bundle.js"></script>
+<body>
+    <nav class="navbar navbar-light bg-primary">
+        <a class="navbar-brand" href="/">
+            <img src="img/logo.png" class="w-50">
+        </a>
+    </nav>
+    <div class="container">
+    <p class="h1 text-uppercase">perguntas</p>
+        <div class="row justify-content-end">
+            <div class="col-auto">
+            <a href="/perguntar" class="btn btn-success text-uppercase px-3">perguntar</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <% questions.forEach( (pergunta) => {%>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <p class="lead"><%= pergunta.titulo %></p>
+                </div>
+                <div class="card-footer">
+                    <p class="lead"><%= pergunta.descricao %></p>
+                    <a class="btn btn-primary me-0 pe-0 w-100" href='/pergunta/<%= pergunta.id %>'>Visualizar</a>
+                </div>
+            </div>
+
+        <% })%>
+    </div>
+
+</body>
+</html>

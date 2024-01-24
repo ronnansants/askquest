@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guia perguntas</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="img/icon_logo.ico" type="image/x-icon">
+</head>
+<script src="js/bootstrap.bundle.js"></script>
+<body>
+    <nav class="navbar navbar-light bg-primary">
+        <a class="navbar-brand" href="/">
+            <img src="img/logo.png" class="w-50">
+        </a>
+    </nav>
+    <div class="container">
+        <div class="card" id="formulario-pergunta">
+            <div class="card-header">
+                <h3>Realizar pergunta</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/salvarpergunta">
+                    <label>Título</label>
+                        <input type="text" placeholder="Título" class="form-control" name="titulo">
+                        <br><label>Descrição</label>
+                        <textarea placeholder="Descreva sua pergunta aqui" class="form-control" name="descricao"></textarea>
+                        <br>
+                        <button class="btn btn-primary">Perguntar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
